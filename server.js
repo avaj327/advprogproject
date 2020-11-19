@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 const fs = require('fs');
 const fastcsv = require('fast-csv');
 const http = require('http');
-
+const Entry = require('Entry')
 
 const dbName = 'test';
 const url = 'mongodb://localhost:27017';
@@ -12,25 +12,23 @@ const url = 'mongodb://localhost:27017';
 function importCSV(log){
     
     //download the latest CSV file from the NYTimes Github
-    download('https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv', 'tmp');
+    try {
+        download('https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv');
+    }
+    catch(err) {
+        throw err;
+    }
     
     //setup the fast CSV stream
-    let stream = fs.createReadStream("tmp/us-counties.csv");
+    let stream = fs.createReadStream("us-counties.csv");
     let csvData = [];
     let csvStream = fastcsv.parse().on("data", (data) => { 
         //parse each column of the csv into fields
         if (data[2] == "New Jersey"){
+            var entry = new Entry(data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8], data[9]);
+
             csvData.push({
-                date: data[0],
-                county: data[1],
-                state: data[2],
-                fips: data[3],
-                cases: data[4],
-                deaths: data[5],
-                confirmed_cases: data[6],
-                confirmed_deaths: data[7],
-                probable_cases: data[8],
-                probable_deaths: data[9]
+                entry
             });
         }
     }).on("end", () => {
@@ -73,10 +71,11 @@ function importCSV(log){
 }
 
 
+
+
 importCSV(false);
 
 http.createServer((req, res) => {
-
 
 
     MongoClient.connect(url, {useUnifiedTopology: true}, (err, client) => {
@@ -98,3 +97,5 @@ http.createServer((req, res) => {
 }).listen(3000, () => {
     console.log("Server is listening!");
 });
+
+
