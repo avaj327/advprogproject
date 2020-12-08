@@ -1,0 +1,19 @@
+{
+  "name": "dbserver",
+  "version": "1.0.0",
+  "description": "Mongo DB Server class",
+  "main": "dbServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjohnson327/advprogproject.git"
+  },
+  "author": "Tyler Johnson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tjohnson327/advprogproject/issues"
+  },
+  "homepage": "https://github.com/tjohnson327/advprogproject#readme"
+}

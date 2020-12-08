@@ -6,9 +6,14 @@ const fastcsv = require('fast-csv');
 const http = require('http');
 const Entry = require('Entry')
 
-const dbName = 'test';
+const dbName = 'advprogproj';
 const url = 'mongodb://localhost:27017';
 
+
+/*  Author: Tyler Johnson
+    Downloads the NY Time's latest covid stats CSV file
+    and import it to the mongo database
+*/
 async function importCSV(log){
     
     //download the latest CSV file from the NYTimes Github
@@ -39,6 +44,7 @@ async function importCSV(log){
         if (log) console.log(csvData);  //log the data to the console (if param is true)
 
         //connect the the mongo db
+        database = dbServer.get();
         MongoClient.connect(url, {useUnifiedTopology: true}, (err, client) => {
             if (err) throw err;
         
@@ -63,7 +69,7 @@ async function importCSV(log){
                 console.log(`Inserted: ${res.insertedCount} rows`);
                 client.close();
             })
-            //TODO: Stats class instead of raw data
+
 
 
         });
