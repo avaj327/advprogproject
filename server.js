@@ -5,8 +5,8 @@ const fs = require('fs');
 const fastcsv = require('fast-csv');
 const http = require('http');
 const Entry = require('Entry')
-//const express = require('express');
-//const server = express();
+const express = require('express');
+const server = express();
 
 const dbName = 'test';
 const url = 'mongodb://localhost:27017';

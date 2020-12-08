@@ -7,3 +7,7 @@ Paul DiDonato
 David Peacock
 
 Note to professor: Database is generated on program run
+
+Installed/Dependencies:
+
+Express
