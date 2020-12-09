@@ -6,6 +6,8 @@ const fastcsv = require('fast-csv');
 const http = require('http');
 const Entry = require('./Entry');
 const database = require('./dbServer');
+const express = require('express');
+const server = express();
 
 const dbName = 'advprogproj';
 
@@ -101,7 +103,7 @@ http.createServer((req, res) => {
 
 
 }).listen(3000, () => {
-	console.log("Server is listening!");
+    console.log("Server is listening on 3000!");
 });
 
 
