@@ -86,16 +86,18 @@ http.createServer((req, res) => {
 	res.write("<html><head><title> NJ Covid Stats </title></head>");
 	res.write("<body><br><br> ");
 	res.write("<h1>NJ Covid Stats:</h1>");
-	db.collection('covidstats').find().toArray((err, item) => {
-		res.write(JSON.stringify(item, null, 2));
-		res.end("</html>");
-	});
+
 
 	//prints out each county name -- temp function for demonstration
 	db.collection('covidstats').find({}).toArray((err, array) => {
 		array.forEach(item => {
-			console.log(item.entry.county);
+			var county = item.entry.county;
+			console.log(typeof(county));
+			res.write(county + "\n");
 		});
+
+
+		res.end("</html>");
 	});
 
 
