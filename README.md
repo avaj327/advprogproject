@@ -6,8 +6,16 @@ Tyler Johnson
 Paul DiDonato
 David Peacock
 
-Note to professor: Database is generated on program run
+**Note to professor:** Database is generated on program run
 
-Installed/Dependencies:
+
+
+## Installed/Dependencies:
 
 Express
+
+Mongodb
+
+Download
+
+Fast-CSV
