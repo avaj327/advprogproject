@@ -9,6 +9,7 @@ const database = require('./dbServer');
 const express = require('express');
 const server = express();
 
+
 const dbName = 'advprogproj';
 
 let db = database.get();
@@ -79,8 +80,12 @@ async function importCSV(log){
 
 importCSV(false);
 
-http.createServer((req, res) => {
 
+
+http.createServer((req, res) => {
+    
+   
+    
 	db = database.get();
 	
 	res.setHeader("Content-Type", "text/html");
@@ -88,17 +93,27 @@ http.createServer((req, res) => {
 	res.write("<html><head><title> NJ Covid Stats </title></head>");
 	res.write("<body><br><br> ");
 	res.write("<h1>NJ Covid Stats:</h1>");
+
 	db.collection('covidstats').find().toArray((err, item) => {
         var items = JSON.stringify(item, null, 0);
         res.write(items);
-        res.end("</html>");
 		
 	});
+
 
 	//prints out each county name -- temp function for demonstration
 	db.collection('covidstats').find({}).toArray((err, array) => {
 		array.forEach(item => {
-            res.write(item.entry.county);
+			var county = item.entry.county;
+            res.write(county);
+            
+            
+        });
+        
+        res.write("<input type='text' name='search'> ")
+      
+		res.end("</html>");
+
             
              
 		});
