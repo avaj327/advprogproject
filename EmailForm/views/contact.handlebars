@@ -1,0 +1,38 @@
+{{!//The below code was modified from a Youtube video, courtesy of Traversy Media
+//DEC 04 2020
+//GIT NodeContactForm (Version 1.0.0), source code
+//https://github.com/bradtraversy/nodecontactform}}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+  <div class="container">
+    <h1 class="brand"><span>Covid</span> Email Stats</h1>
+      <div class="company-info">
+        <h3>Get notified of Covid-19 stats in your area</h3>
+        <ul>
+          <li>Rowan University</li>
+          <li>Glassboro, NJ</li>
+          <li>APW@students.rowan.edu</li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h3>Enter in your email information</h3>
+        {{msg}}
+        <form method="POST" action="send">
+          <p>
+            <label>Name</label>
+            <input type="text" name="name">
+          </p>
+          <p>
+            <label>Email Address</label>
+            <input type="email" name="email">
+          </p>
+          <p class="full">
+            <button type="submit">Submit</button>
+          </p>
+        </form>
+      </div>
+  </div>
+</body>
+</html>

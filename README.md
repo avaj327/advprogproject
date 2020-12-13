@@ -1,4 +1,21 @@
 # advprogproject
 Fall 2020 Advanced Programming Final Project
 
-Note to professor: Database is generated on program run
+Contributors:
+Tyler Johnson
+Paul DiDonato
+David Peacock
+
+**Note to professor:** Database is generated on program run
+
+
+
+## Installed/Dependencies:
+
+Express
+
+Mongodb
+
+Download
+
+Fast-CSV

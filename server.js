@@ -6,6 +6,8 @@ const fastcsv = require('fast-csv');
 const http = require('http');
 const Entry = require('./Entry');
 const database = require('./dbServer');
+const express = require('express');
+const server = express();
 
 
 const dbName = 'advprogproj';
@@ -91,7 +93,13 @@ http.createServer((req, res) => {
 	res.write("<html><head><title> NJ Covid Stats </title></head>");
 	res.write("<body><br><br> ");
 	res.write("<h1>NJ Covid Stats:</h1>");
-   
+
+	db.collection('covidstats').find().toArray((err, item) => {
+        var items = JSON.stringify(item, null, 0);
+        res.write(items);
+		
+	});
+
 
 	//prints out each county name -- temp function for demonstration
 	db.collection('covidstats').find({}).toArray((err, array) => {
@@ -105,12 +113,17 @@ http.createServer((req, res) => {
         res.write("<input type='text' name='search'> ")
       
 		res.end("</html>");
+
+            
+             
+		});
 	});
 
 
 
+
 }).listen(3000, () => {
-	console.log("Server is listening!");
+    console.log("Server is listening on 3000!");
 });
 
 
