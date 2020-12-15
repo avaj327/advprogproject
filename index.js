@@ -59,6 +59,18 @@ const County = mongoose.model("County", schema);
 const csvFilePath = path.join(__dirname, 'us-counties.csv');
 const jsonArray = csv().fromFile(csvFilePath)
     .then(jsonObj => {
+        //iterate through the json, removes all items that aren't NJ
+        for (let i = 0; i < jsonObj.length; ) {
+            let item = jsonObj[i];
+            
+            if (item.state != "New Jersey") {
+                jsonObj.splice(i, 1);
+            }
+            else {
+                i++;
+            }
+        }
+        
         County.collection.drop();
         County.insertMany(jsonObj, function (err, data) {
             if (err) {
@@ -67,7 +79,7 @@ const jsonArray = csv().fromFile(csvFilePath)
             };
 
             console.log(`Successfully inserted ${data.length} records in MongoDB.`);
-        });
+        })
     });
 
 app.use(cors());
