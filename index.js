@@ -4,6 +4,18 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');  // allows the API to be used by front end apps 
 const csv = require('csvtojson');
+const fs = require('fs');
+const download = require('download');
+
+async function start() {
+    try {
+        fs.writeFileSync('./us-counties.csv', await download('https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv')); 
+    }
+    catch (err) {
+       throw err;
+    }
+
+
 
 const mongoose = require('mongoose');
 const connectionString = `mongodb://localhost:27017/covid-stats`;
@@ -59,3 +71,7 @@ app.get('/:county', async (req, res) => {
 });
 
 app.listen(3000, () => console.log(`Server listening on 3000`));
+
+}
+
+start();
