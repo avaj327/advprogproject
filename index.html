@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+</head>
+<body onload="getDocument()">
+<div class="container-fluid">
+    <div class="row" style="margin-top: 30px;">
+        <div class="col text-left">
+            <h1 class="brand"><span>Covid</span> Email Stats</h1>
+            <div class="company-info">
+                <h3>Get notified of Covid-19 stats in your area</h3>
+                <ul>
+                    <li>Rowan University</li>
+                    <li>Glassboro, NJ</li>
+                    <li>APW@students.rowan.edu</li>
+                </ul>
+            </div>
+            <div class="contact">
+                <h3>Enter in your email information</h3>
+                
+                <form method="POST" action="send">
+                    <p>
+                        <label>Name</label>
+                        <input type="text" name="name" placeholder="Name" class="form-control" />
+                    </p>
+                    <p>
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="Email address" class="form-control" />
+                    </p>
+                    <p class="full">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+        <div class="col text-center">
+            <h1>Covid Map</h1>
+            <object id="sv" type="image/svg+xml" data="njmap.svg"></object>
+        </div>
+        <div class="col">
+            <form>
+                <p>
+                    <label>Search county...</label>
+                    <input type="text" name="keyword" class="form-control" placeholder="Search with county name..." />
+                </p>
+                <button type="button" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script>
+    function getData(name, cb) {
+        fetch(`http://localhost:3000/${name}`)
+            .then(response => response.json())
+            .then(data => cb(data));
+    }
+
+    function getDocument() {
+        var S = document.getElementById("sv").getSVGDocument();
+        atlantic = S.getElementById('Atlantic');
+        bergen = S.getElementById('Bergen');
+        burlington = S.getElementById('Burlington');
+        camden = S.getElementById('Camden');
+        cape_may = S.getElementById('Cape_May');
+        cumberland = S.getElementById('Cumberland');
+        essex = S.getElementById('Essex');
+        gloucester = S.getElementById('Gloucester');
+        hudson = S.getElementById('Hudson');
+        hunterdon = S.getElementById('Hunterdon');
+        mercer = S.getElementById('Mercer');
+        middlesex = S.getElementById('Middlesex');
+        monmouth = S.getElementById('Monmouth');
+        morris = S.getElementById('Morris');
+        ocean = S.getElementById('Ocean');
+        passaic = S.getElementById('Passaic');
+        salem = S.getElementById('Salem');
+        somerset = S.getElementById('Somerset');
+        sussex = S.getElementById('Sussex');
+        union = S.getElementById('Union');
+        warren = S.getElementById('Warren');
+
+        atlantic.addEventListener('click', function () {
+            this.style.fill = "pink";
+           getData('atlantic', data => {
+                
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        bergen.addEventListener('click', function () {
+            this.style.fill = "darkred";
+            getData('bergen', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+        burlington.addEventListener('click', function () {
+            this.style.fill = "red";
+            getData('burlington', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        camden.addEventListener('click', function () {
+            this.style.fill = "#FF0000";
+            getData('camden', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+        cape_may.addEventListener('click', function () {
+            this.style.fill = "red";
+            getData('cape may', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        cumberland.addEventListener('click', function () {
+            this.style.fill = "#FF0000";
+            getData('cumberland', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+        essex.addEventListener('click', function () {
+            this.style.fill = "red";
+            getData('essex', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        gloucester.addEventListener('click', function () {
+            this.style.fill = "#C80000";
+            getData('gloucester', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+        hudson.addEventListener('click', function () {
+            this.style.fill = "darkred";
+            getData('hudson', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        hunterdon.addEventListener('click', function () {
+            this.style.fill = "red";
+            getData('hunterdon', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        mercer.addEventListener('click', function () {
+            this.style.fill = "#FF0000";
+            getData('mercer', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        middlesex.addEventListener('click', function () {
+            this.style.fill = "#E80000";
+            getData('middlesex', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        monmouth.addEventListener('click', function () {
+            this.style.fill = "red";
+            getData('monmouth', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        morris.addEventListener('click', function () {
+            this.style.fill = "#FF0000";
+            getData('morris', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        ocean.addEventListener('click', function () {
+            this.style.fill = "pink";
+            getData('ocean', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        passaic.addEventListener('click', function () {
+            this.style.fill = "darkred";
+            getData('passaic', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        salem.addEventListener('click', function () {
+            this.style.fill = "#FF0000";
+            getData('salem', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        somerset.addEventListener('click', function () {
+            this.style.fill = "#FF0000";
+            getData('somerset', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        sussex.addEventListener('click', function () {
+            this.style.fill = "#D80000";
+            getData('sussex', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        union.addEventListener('click', function () {
+            this.style.fill = "#FF0000";
+            getData('union', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+        warren.addEventListener('click', function () {
+            this.style.fill = "#FF0000";
+            getData('warren', data => {
+                alert(`
+                    cases: ${data.cases}
+                    confirmed_cases: ${data.confirmed_cases}
+                    confirmed_deaths: ${data.confirmed_deaths}
+                    county: ${data.county}
+                    date: ${data.date}
+                    deaths: ${data.deaths}
+                    fips: ${data.fips}
+                    probable_cases: ${data.probable_cases}
+                    probable_deaths: ${data.probable_deaths}
+                    state: ${data.state}
+                `);
+            });
+        });
+
+    }
+</script>
+</body>
+
+</html>
