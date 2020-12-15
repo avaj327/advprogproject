@@ -7,7 +7,7 @@ To start the application, run "npm start" in the application directory
 
 
 
-Contributors:
+### Contributors:
 
 Tyler Johnson: MongoDB
 
