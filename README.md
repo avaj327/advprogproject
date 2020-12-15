@@ -2,9 +2,9 @@
 Fall 2020 Advanced Programming Final Project
 
 Contributors:
-Tyler Johnson
-Paul DiDonato
-David Peacock
+Tyler Johnson: MongoDB
+Paul DiDonato: Front End HTML Rendering
+David Peacock: Email authentication + Front End 
 
 Installed/Dependencies:
 
@@ -25,3 +25,12 @@ https://medium.com/@nickroach_50526/sending-emails-with-node-js-using-smtp-gmail
 
 //How to incorporate nodemailer email notification into website
 https://www.youtube.com/watch?v=nF9g1825mwk&ab_channel=TraversyMedia
+
+
+// Mongoose documentation
+https://mongoosejs.com/docs/4.x/docs/connections.html
+
+// render html files
+https://codeforgeek.com/render-html-file-expressjs
+
+// 
