@@ -6,16 +6,22 @@ Tyler Johnson
 Paul DiDonato
 David Peacock
 
-**Note to professor:** Database is generated on program run
+Installed/Dependencies:
+
+express
+nodemailer
+body-parser
+express-handlebars
+googleapis
+mongoDB
+fs csv
+cors 
 
 
+Credit given:
 
-## Installed/Dependencies:
+//How to use gmail/authentication keys with nodemailer
+https://medium.com/@nickroach_50526/sending-emails-with-node-js-using-smtp-gmail-and-oauth2-316fe9c790a1
 
-Express
-
-Mongodb
-
-Download
-
-Fast-CSV
+//How to incorporate nodemailer email notification into website
+https://www.youtube.com/watch?v=nF9g1825mwk&ab_channel=TraversyMedia
