@@ -3,6 +3,10 @@ Fall 2020 Advanced Programming Final Project
 
 To start the application, run "npm start" in the application directory
 
+*Note to Professor:* The database is generated on application startup
+
+
+
 Contributors:
 
 Tyler Johnson: MongoDB
