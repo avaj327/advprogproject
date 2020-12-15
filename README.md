@@ -10,7 +10,7 @@ Paul DiDonato: Front End HTML Rendering
 David Peacock: Email authentication + Front End 
 
 
-###Installed/Dependencies:
+### Installed/Dependencies:
 
 express
 
@@ -29,7 +29,7 @@ fs csv
 cors 
 
 
-###Credit given:
+### Credit given:
 
 //How to use gmail/authentication keys with nodemailer
 
