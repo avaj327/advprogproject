@@ -1,3 +1,16 @@
+
+// Mongoose Documentation 
+//https://mongoosejs.com/docs/4.x/docs/connections.html
+
+//Google Authentication code, credit from:
+//Medium Article, written by Nick Roach
+//DEC 09 2020
+//https://medium.com/@nickroach_50526/sending-emails-with-node-js-using-smtp-gmail-and-oauth2-316fe9c790a1
+
+// Assisted from "Render HTML File "
+// https://codeforgeek.com/render-html-file-expressjs
+
+
 const path = require('path');
 const express = require('express');
 const app = express();
@@ -17,7 +30,7 @@ async function start() {
 
 
 
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); // manages relationships between data 
 const connectionString = `mongodb://localhost:27017/covid-stats`;
 mongoose.connect(connectionString, {
     useCreateIndex: true,
